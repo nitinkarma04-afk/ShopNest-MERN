@@ -29,3 +29,29 @@ export const placeOrder = async (
 
   return response.data;
 };
+
+export const getAllOrders =
+  async () => {
+
+    const response =
+      await axios.get(
+        `${API_URL}/admin/all`
+      );
+
+    return response.data;
+};
+
+export const updateOrderStatus =
+  async (
+    orderId,
+    status
+  ) => {
+
+    const response =
+      await axios.put(
+        `${API_URL}/admin/${orderId}`,
+        { status }
+      );
+
+    return response.data;
+};

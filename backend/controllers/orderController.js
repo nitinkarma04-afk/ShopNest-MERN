@@ -96,3 +96,66 @@ export const getUserOrders = async (
 
   }
 };
+
+// ================= ADMIN =================
+
+export const getAllOrders = async (
+  req,
+  res
+) => {
+  try {
+
+    const orders = await Order.find()
+      .sort({
+        createdAt: -1,
+      });
+
+    res.status(200).json(
+      orders
+    );
+
+  } catch (error) {
+
+    res.status(500).json({
+      message:
+        error.message,
+    });
+
+  }
+};
+
+export const updateOrderStatus = async (
+  req,
+  res
+) => {
+
+  try {
+
+    const { orderId } =
+      req.params;
+
+    const { status } =
+      req.body;
+
+    const order =
+      await Order.findByIdAndUpdate(
+        orderId,
+        { status },
+        { new: true }
+      );
+
+    res.status(200).json({
+      message:
+        "Status Updated",
+      order,
+    });
+
+  } catch (error) {
+
+    res.status(500).json({
+      message:
+        error.message,
+    });
+
+  }
+};

@@ -67,6 +67,17 @@ const Navbar = () => {
               </Link>
             )}
 
+             
+
+            {user?.role === "admin" && (
+  <Link
+    to="/admin"
+    className="text-red-600 font-semibold hover:text-red-700 transition"
+  >
+    Admin Panel
+  </Link>
+)}
+
           </nav>
 
           {/* Search */}

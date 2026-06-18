@@ -9,6 +9,8 @@ import ProductPage from "../pages/Product/ProductPage";
 import NotFound from "../pages/NotFound/NotFound";
 import ProtectedRoute from "../components/auth/ProtectedRoute";
 
+import Admin from "../pages/Admin/Admin";
+
 const AppRoutes = () => {
   return (
     <Routes>
@@ -28,6 +30,15 @@ const AppRoutes = () => {
   element={
     <ProtectedRoute>
       <Orders />
+    </ProtectedRoute>
+  }
+/>
+
+<Route
+  path="/admin"
+  element={
+    <ProtectedRoute>
+      <Admin />
     </ProtectedRoute>
   }
 />

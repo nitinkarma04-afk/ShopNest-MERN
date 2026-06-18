@@ -7,8 +7,8 @@ import jwt from "jsonwebtoken";
 export const registerUser = async (req, res) => {
   try {
     const { name, email, password } = req.body;
-    console.log("EMAIL:", email);
-console.log("PASSWORD:", password);
+//     console.log("EMAIL:", email);
+// console.log("PASSWORD:", password);
 
     const userExists = await User.findOne({ email });
 
@@ -49,12 +49,16 @@ export const loginUser = async (req, res) => {
 
     const { email, password } = req.body;
 
-    console.log("EMAIL:", email);
-    console.log("PASSWORD:", password);
+    // console.log("EMAIL:", email);
+    // console.log("PASSWORD:", password);
 
     const user = await User.findOne({ email });
 
-    console.log("USER:", user);
+    // temporaly add 
+//     const allUsers = await User.find();
+// console.log("ALL USERS:", allUsers);
+
+     
 
     if (!user) {
       return res.status(400).json({
@@ -89,10 +93,11 @@ export const loginUser = async (req, res) => {
       message: "Login Successful",
       token,
       user: {
-        id: user._id,
-        name: user.name,
-        email: user.email,
-      },
+  id: user._id,
+  name: user.name,
+  email: user.email,
+  role: user.role,
+},
     });
 
   } catch (error) {
