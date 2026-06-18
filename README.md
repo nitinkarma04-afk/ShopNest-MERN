@@ -1,4 +1,7 @@
-# ShopNest - MERN E-Commerce Store
+# 🛒 ShopNest - MERN E-Commerce Store
+
+A full-stack E-Commerce platform built using the MERN Stack with authentication, cart management, wishlist, order processing, and admin dashboard.
+ 
 
 ## Overview
 
