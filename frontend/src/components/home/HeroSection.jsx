@@ -7,8 +7,8 @@
 
       <div className="max-w-7xl mx-auto px-6 py-28 text-center">
         <span className="inline-block rounded-full border border-slate-300 px-4 py-2 text-sm font-medium text-slate-600">
-          🚀 Modern Shopping Experience
-        </span>
+  ✨ Trusted by 1000+ Happy Customers
+</span>
 
         <h1 className="mt-8 text-6xl md:text-7xl font-extrabold leading-tight">
           Shop Smarter
@@ -18,18 +18,49 @@
         </h1>
 
         <p className="mx-auto mt-8 max-w-2xl text-lg text-slate-600">
-          Discover premium products, seamless shopping, and a modern experience designed for the future.
+          Discover premium products, lightning-fast shopping,
+secure checkout and a modern e-commerce experience.
         </p>
 
         <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
-          <button className="rounded-full bg-blue-600 px-8 py-4 font-semibold text-white hover:bg-blue-700 transition">
+          <button className="rounded-full bg-blue-600 px-8 py-4 font-semibold text-white hover:bg-blue-700 hover:scale-105 transition-all duration-300 shadow-lg">
             Shop Now
           </button>
 
-          <button className="rounded-full border border-slate-300 px-8 py-4 font-semibold hover:bg-slate-100 transition">
+          <button className="rounded-full border border-slate-300 px-8 py-4 font-semibold hover:bg-slate-100 hover:scale-105 transition-all duration-300">
             Explore Products
           </button>
         </div>
+        <div className="mt-16 flex flex-wrap justify-center gap-12">
+
+  <div className="text-center">
+    <h3 className="text-3xl font-bold text-slate-900">
+      500+
+    </h3>
+    <p className="text-slate-500">
+      Products
+    </p>
+  </div>
+
+  <div className="text-center">
+    <h3 className="text-3xl font-bold text-slate-900">
+      1K+
+    </h3>
+    <p className="text-slate-500">
+      Customers
+    </p>
+  </div>
+
+  <div className="text-center">
+    <h3 className="text-3xl font-bold text-slate-900">
+      24/7
+    </h3>
+    <p className="text-slate-500">
+      Support
+    </p>
+  </div>
+
+</div>
       </div>
     </section>
   );

@@ -33,6 +33,14 @@ const filteredProducts = products.filter(
 
      <div className="text-center">
 
+      <h2 className="text-4xl font-bold mt-8">
+   🔥 Featured Products
+  </h2>
+
+  <p className="mt-4 text-slate-600">
+    Discover our most popular products
+  </p>
+
   <input
     type="text"
     placeholder="Search products..."
@@ -40,10 +48,11 @@ const filteredProducts = products.filter(
     onChange={(e) =>
       setSearch(e.target.value)
     }
-    className="mt-6 w-full max-w-md border rounded-xl px-4 py-3 outline-none"
+    className="mt-8 w-full max-w-md rounded-2xl border border-slate-200 bg-white px-5 py-4 outline-none shadow-sm focus:ring-2 focus:ring-blue-500"
   />
 
   {/* Category Buttons */}
+
   <div className="flex flex-wrap justify-center gap-3 mt-6">
 
     {[
@@ -63,8 +72,8 @@ const filteredProducts = products.filter(
         }
         className={`px-4 py-2 rounded-full border transition ${
           selectedCategory === category
-            ? "bg-blue-600 text-white"
-            : "bg-white"
+            ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-md"
+            : "bg-white hover:bg-slate-100"
         }`}
       >
         {category}
@@ -74,17 +83,10 @@ const filteredProducts = products.filter(
 
   </div>
 
-  <h2 className="text-4xl font-bold mt-8">
-    Featured Products
-  </h2>
-
-  <p className="mt-4 text-slate-600">
-    Discover our most popular products
-  </p>
-
+   
 </div>
 
-      <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
         {filteredProducts.map((product) => (
           <ProductCard
             key={product.id}

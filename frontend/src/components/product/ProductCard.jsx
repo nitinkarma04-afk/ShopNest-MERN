@@ -51,13 +51,13 @@ const ProductCard = ({ product }) => {
 };
   return (
     <Link to={`/product/${product.id}`}>
-      <div className="group overflow-hidden rounded-3xl bg-white shadow-sm border border-slate-100 hover:shadow-2xl transition duration-300 cursor-pointer">
+      <div className="group overflow-hidden rounded-3xl bg-white shadow-md border border-slate-100   hover:-translate-y-2 transition-all duration-300 hover:-translate-y-2 transition-all duration-300 cursor-pointer">
 
         <div className="overflow-hidden">
           <img
             src={product.image}
             alt={product.name}
-            className="h-64 w-full object-contain bg-slate-50 p-4 transition duration-500 group-hover:scale-110"
+           className="h-64 w-full object-contain bg-gradient-to-br from-slate-50 to-slate-100 p-4 transition duration-500 group-hover:scale-105"
           />
         </div>
 
