@@ -118,57 +118,66 @@ const Wishlist = () => {
         <h1 className="text-5xl font-bold">
           My Wishlist ❤️
         </h1>
+{wishlistItems.length === 0 ? (
 
-        <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+  <div className="mt-10 bg-white rounded-3xl p-10 text-center shadow">
 
-          {wishlistItems.map(
-            (item) => (
+    <h2 className="text-2xl font-bold">
+      Your Wishlist is Empty ❤️
+    </h2>
 
-              <div
-                key={item._id}
-                className="bg-white rounded-3xl p-6 shadow border"
-              >
- <img
-  src={item.image}
-  alt={item.name}
-  className="h-48 w-full object-contain"
-/>
- 
-                <h2 className="mt-4 text-xl font-bold">
-                  {item.name}
-                </h2>
+    <p className="mt-3 text-slate-500">
+      Save products here for later.
+    </p>
 
-                <p className="mt-2 text-blue-600 font-bold">
-                  {item.price}
-                </p>
+  </div>
 
-                <button
-  onClick={() =>
-    handleAddToCart(item)
-  }
-  className="mt-4 w-full bg-blue-600 text-white py-3 rounded-xl"
->
-  🛒 Add To Cart
-</button>
+) : (
 
-                <button
-                  onClick={() =>
-                    handleRemove(
-                      item._id
-                    )
-                  }
-                  className="mt-4 w-full bg-red-500 text-white py-3 rounded-xl"
-                >
-                  Remove
-                </button>
+  <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-              </div>
+    {wishlistItems.map((item) => (
 
-            )
-          )}
+      <div
+        key={item._id}
+        className="bg-white rounded-3xl p-6 shadow border"
+      >
 
-        </div>
+        <img
+          src={item.image}
+          alt={item.name}
+          className="h-48 w-full object-contain"
+        />
 
+        <h2 className="mt-4 text-xl font-bold">
+          {item.name}
+        </h2>
+
+        <p className="mt-2 text-blue-600 font-bold">
+          {item.price}
+        </p>
+
+        <button
+          onClick={() => handleAddToCart(item)}
+          className="mt-4 w-full bg-blue-600 text-white py-3 rounded-xl"
+        >
+          🛒 Add To Cart
+        </button>
+
+        <button
+          onClick={() => handleRemove(item._id)}
+          className="mt-4 w-full bg-red-500 text-white py-3 rounded-xl"
+        >
+          Remove
+        </button>
+
+      </div>
+
+    ))}
+
+  </div>
+
+)}
       </div>
 
     </MainLayout>

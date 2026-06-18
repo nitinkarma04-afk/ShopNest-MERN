@@ -7,6 +7,8 @@ const Orders = () => {
   const [orders, setOrders] =
     useState([]);
 
+const [loading, setLoading] =
+  useState(true);
   const user = JSON.parse(
     localStorage.getItem("user")
   );
@@ -30,7 +32,11 @@ const Orders = () => {
           console.log(error);
 
         }
+        finally {
 
+  setLoading(false);
+
+}
       };
 
     if (user) {
@@ -50,11 +56,17 @@ const Orders = () => {
 
         <div className="mt-10 space-y-6">
 
-          {orders.length === 0 ? (
+          {loading ? (
 
-            <h2>
-              No Orders Found
-            </h2>
+  <h2 className="text-center">
+    Loading Orders...
+  </h2>
+
+) : orders.length === 0 ? (
+
+            <h2 className="text-2xl font-bold text-center">
+  No Orders Yet 📦
+</h2>
 
           ) : (
 

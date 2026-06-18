@@ -50,17 +50,35 @@ const Cart = () => {
 
         <div className="mt-12 grid lg:grid-cols-3 gap-10">
 
-          <div className="lg:col-span-2 space-y-6">
+         <div className="lg:col-span-2 space-y-6">
 
-            {cartItems.map((item) => (
-              <CartItem
-                key={item._id}
-                product={item}
-                setCartItems={setCartItems}
-              />
-            ))}
+  {cartItems.length === 0 ? (
 
-          </div>
+    <div className="bg-white rounded-3xl p-10 text-center shadow">
+
+      <h2 className="text-2xl font-bold">
+        Your Cart is Empty 🛒
+      </h2>
+
+      <p className="mt-3 text-slate-500">
+        Add products to start shopping.
+      </p>
+
+    </div>
+
+  ) : (
+
+    cartItems.map((item) => (
+      <CartItem
+        key={item._id}
+        product={item}
+        setCartItems={setCartItems}
+      />
+    ))
+
+  )}
+
+</div>
 
           <CartSummary
             cartItems={cartItems}
