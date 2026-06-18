@@ -10,6 +10,7 @@ import NotFound from "../pages/NotFound/NotFound";
 import ProtectedRoute from "../components/auth/ProtectedRoute";
 
 import Admin from "../pages/Admin/Admin";
+import Wishlist from "../pages/Wishlist/Wishlist";
 
 const AppRoutes = () => {
   return (
@@ -17,6 +18,14 @@ const AppRoutes = () => {
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
+      <Route
+        path="/wishlist"
+        element={
+          <ProtectedRoute>
+            <Wishlist />
+          </ProtectedRoute>
+        }
+      />
      <Route
   path="/cart"
   element={

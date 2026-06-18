@@ -67,7 +67,14 @@ const Navbar = () => {
               </Link>
             )}
 
-             
+             {user && (
+  <Link
+    to="/wishlist"
+    className="hover:text-blue-600 transition"
+  >
+    Wishlist ❤️
+  </Link>
+)}
 
             {user?.role === "admin" && (
   <Link

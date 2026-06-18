@@ -1,6 +1,54 @@
  import { Link } from "react-router-dom";
+import toast from "react-hot-toast";
 
+import {
+  addToWishlist,
+} from "../../services/wishlistService";
 const ProductCard = ({ product }) => {
+  const handleWishlist =
+  async (e) => {
+
+    e.preventDefault();
+
+    try {
+
+      const user =
+        JSON.parse(
+          localStorage.getItem(
+            "user"
+          )
+        );
+
+      if (!user) {
+
+        toast.error(
+          "Please Login First"
+        );
+
+        return;
+      }
+
+      const data =
+        await addToWishlist({
+          userId: user.id,
+          productId: product.id,
+          name: product.name,
+          price: product.price,
+          image: product.image,
+        });
+
+      toast.success(
+        data.message
+      );
+
+    } catch (error) {
+
+      toast.error(
+        "Failed To Add Wishlist"
+      );
+
+    }
+};
   return (
     <Link to={`/product/${product.id}`}>
       <div className="group overflow-hidden rounded-3xl bg-white shadow-sm border border-slate-100 hover:shadow-2xl transition duration-300 cursor-pointer">
@@ -26,6 +74,12 @@ const ProductCard = ({ product }) => {
           <button className="mt-5 w-full rounded-xl bg-slate-900 py-3 text-white hover:bg-black transition">
             View Details
           </button>
+          <button
+  onClick={handleWishlist}
+  className="mt-3 w-full rounded-xl bg-pink-500 py-3 text-white hover:bg-pink-600 transition"
+>
+  ❤️ Add To Wishlist
+</button>
 
         </div>
 
